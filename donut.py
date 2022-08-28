@@ -8,8 +8,7 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 hue = 0
 
-WIDTH = 1920
-HEIGHT = 1080
+WIDTH, HEIGHT = 800, 800
 
 x_start, y_start = 0, 0
 
@@ -25,7 +24,7 @@ y_offset = rows / 2
 
 A, B = 0, 0
 
-theta_spacing = 10
+theta_spacing = 18
 phi_spacing = 1
 
 chars = ".,-~:;=!*#$@"
@@ -37,13 +36,13 @@ pygame.display.set_caption('Donut')
 font = pygame.font.SysFont('Arial', 18, bold=True)
 
 
-def hsv2rgb(h, s, v):
-    return tuple(round(i * 255) for i in colorsys.hsv_to_rgb(h, s, v))
-
-
 def text_display(letter, x_start, y_start):
     text = font.render(str(letter), True, hsv2rgb(hue, 1, 1))
     display_surface.blit(text, (x_start, y_start))
+
+
+def hsv2rgb(h, s, v):
+    return tuple(round(i * 255) for i in colorsys.hsv_to_rgb(h, s, v))
 
 
 run = True
@@ -92,9 +91,7 @@ while run:
             x_start += x_separator
 
     pygame.display.update()
-
     hue += 0.005
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
