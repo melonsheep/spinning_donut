@@ -34,6 +34,8 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 display_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Donut')
 font = pygame.font.SysFont('Arial', 18, bold=True)
+clock = pygame.time.Clock()
+FPS = 60
 
 
 def text_display(letter, x_start, y_start):
@@ -45,11 +47,17 @@ def hsv2rgb(h, s, v):
     return tuple(round(i * 255) for i in colorsys.hsv_to_rgb(h, s, v))
 
 
+def update_fps():
+    fps = str(int(clock.get_fps()))
+    fps_text = font.render(fps, 5, pygame.Color("Red"))
+    return fps_text
+
+
 run = True
 while run:
-
+    clock.tick(FPS)
+    pygame.display.set_caption("FPS: {:.2f}".format(clock.get_fps()))
     screen.fill((black))
-
     z = [0] * screen_size
     b = [' '] * screen_size
 
@@ -70,7 +78,7 @@ while run:
             y = int(y_offset + 20 * D * (l * h * n + t * m))
             o = int(x + columns * y)
             N = int(8 * ((f * e - c * d * g) * m - c * d *
-                    e - f * g - l * d * n))
+                         e - f * g - l * d * n))
             if rows > y and y > 0 and x > 0 and columns > x and D > z[o]:
                 z[o] = D
                 b[o] = chars[N if N > 0 else 0]
