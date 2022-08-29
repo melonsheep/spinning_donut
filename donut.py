@@ -8,7 +8,7 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 hue = 0
 
-WIDTH, HEIGHT = 800, 800
+WIDTH, HEIGHT = 1000, 800
 
 x_start, y_start = 0, 0
 
@@ -56,7 +56,7 @@ def update_fps():
 run = True
 while run:
     clock.tick(FPS)
-    pygame.display.set_caption("FPS: {:.2f}".format(clock.get_fps()))
+    pygame.display.set_caption("{:.2f}".format(clock.get_fps()))
     screen.fill((black))
     z = [0] * screen_size
     b = [' '] * screen_size
