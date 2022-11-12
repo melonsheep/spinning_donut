@@ -8,10 +8,10 @@ Big thanks to this guy, I took a lot of inspiration from his code (https://githu
 
 Future plans:
 
-FPS bar (just like his donut) to make it look clean. ☑️
+• FPS bar (just like his donut) to make it look clean. ☑️
 
-A rgb donut because it's just white. ❌
+• A rgb donut because it's just white. ❌
 
-Adding a feature to control the donut's movement.❌
+• Adding a feature to control the donut's movement.❌
 
 My motivation now - 📉
